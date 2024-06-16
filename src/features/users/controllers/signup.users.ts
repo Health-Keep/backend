@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { hash } from 'bcrypt'
+import { hash } from 'bcryptjs'
 import { wrapper } from "../../../middleware/asyncWrapper";
 import { globalError } from "../../../utils/globalError";
 import { statusCode } from "../../../utils/httpStatusCode";
