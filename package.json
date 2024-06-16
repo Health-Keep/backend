@@ -6,14 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -e ts --watch 'src/**/*.ts' --exec 'tsc && node --env-file .env dist/app.js'",
-    "swagger": "node ./src/docs/index.mjs"
+    "swagger": "node ./src/docs/index.mjs",
+    "start": "nodemon src/app.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "joi": "^17.13.1",
     "jsonwebtoken": "^9.0.2",
@@ -22,7 +23,6 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
     "@types/bcryptjs": "^2.4.6",
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
