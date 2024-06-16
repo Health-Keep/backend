@@ -31,7 +31,7 @@ const signup = wrapper(async(req: Request, res: Response, next: NextFunction) =>
     });
     await user.save();
     res.status(201).send({
-    status: "SUCCESS",
+    status: SUCCESS,
     message: "User successfully registered.",
     data: null,
   });

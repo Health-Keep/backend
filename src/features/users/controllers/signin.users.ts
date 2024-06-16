@@ -24,7 +24,7 @@ const signin = wrapper(async(req: Request, res: Response, next: NextFunction) =>
     const user = await userService(signin_dto.email);
     const token = await generateJwt({id: user.id});
     res.status(200).send({
-    status: "SUCCESS",
+    status: SUCCESS,
     message: "User successfully logged in.",
     data: user,
     token: token
