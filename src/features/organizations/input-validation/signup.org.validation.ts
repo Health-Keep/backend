@@ -5,11 +5,11 @@ const { FAIL } = statusCode;
 
 const signupSchema = joi.object({
     name: joi.string().required().min(3).max(30).messages({
-        string: 'A full name is required.',
-        'string.empty': 'A valid name is required.',
-        'string.required': 'A valid name is required.',
-        'string.min': 'A name must have at least 3 characters.',
-        'string.max': 'A name must have less than 30 characters.'
+        string: 'An organization name is required.',
+        'string.empty': 'An organization name is required.',
+        'string.required': 'An organization name is required.',
+        'string.min': 'An organization name must have at least 3 characters.',
+        'string.max': 'An organization name must have less than 30 characters.'
     }),
     email: joi
         .string()
@@ -25,19 +25,18 @@ const signupSchema = joi.object({
         'string.min': 'Password must have at least 8 characters.',
         'string.max': 'A password must be of 20 characters or less.'
     }),
-    nin: joi.number().min(11).max(11).required().messages({
-        'number.empty': 'A valid national id is required.',
-        'number.required': 'A valid national id is required.',
-        'number.min': 'A national id must have 11 digits.',
-        'number.max': 'A national id must have 11 digits.'
-    }),
-    gender: joi.string().valid('Male', 'Female').required().messages({
-        'string.empty': 'Gender is required.',
-        'any.only': 'Gender must be either Male or Female.'
-    })
+    licence: joi
+        .string()
+        .pattern(/^[0-9]{11,18}$/)
+        .required()
+        .messages({
+            'string.empty': 'A licence number is required.',
+            'string.required': 'A licence number is required.',
+            'string.pattern.base': 'A licence number must have between 11 and 18 digits.'
+        })
 });
 
-const signupValidation = async (req: Request, res: Response, next: NextFunction) => {
+const signupOrgValidation = async (req: Request, res: Response, next: NextFunction) => {
     try {
         await signupSchema.validateAsync(req.body);
         next();
@@ -48,4 +47,4 @@ const signupValidation = async (req: Request, res: Response, next: NextFunction)
     }
 };
 
-export { signupValidation };
+export { signupOrgValidation };
