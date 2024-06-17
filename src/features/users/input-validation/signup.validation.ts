@@ -25,12 +25,15 @@ const signupSchema = joi.object({
         'string.min': 'Password must have at least 8 characters.',
         'string.max': 'A password must be of 20 characters or less.'
     }),
-    nin: joi.number().min(11).max(11).required().messages({
-        'number.empty': 'A valid national id is required.',
-        'number.required': 'A valid national id is required.',
-        'number.min': 'A national id must have 11 digits.',
-        'number.max': 'A national id must have 11 digits.'
-    }),
+    nin: joi
+        .string()
+        .pattern(/^[0-9]{11,11}$/)
+        .required()
+        .messages({
+            'string.empty': 'A national id number is required.',
+            'string.required': 'A national id number is required.',
+            'string.pattern.base': 'A national id number must have between 11 and 18 digits.'
+        }),
     gender: joi.string().valid('Male', 'Female').required().messages({
         'string.empty': 'Gender is required.',
         'any.only': 'Gender must be either Male or Female.'
