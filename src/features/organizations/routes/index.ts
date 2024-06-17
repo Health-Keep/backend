@@ -1,6 +1,6 @@
 import { Router } from 'express';
 // Controllers
-import login_org from '../controllers/sigin.org';
+import login_org from '../controllers/signin.org';
 import signup_org from '../controllers/singup.org';
 // Input validation
 import { signupOrgValidation } from '../input-validation/signup.org.validation';
