@@ -1,7 +1,7 @@
 import express, { json } from "express";
 import cors from 'cors';
 import config from "./docs/swagger-output.json";
-import cookieParser from "cookie-parser";
+// import cookieParser from "cookie-parser";
 import swaggerUi from 'swagger-ui-express';
 import { errorHandler } from "./middleware/error.middleware";
 import { notFound } from "./middleware/notFound.middleware";

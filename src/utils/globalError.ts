@@ -1,5 +1,4 @@
 
-
 class globalError extends Error {
     statusCode: number;
     statusText: string;
