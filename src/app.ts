@@ -1,11 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-<<<<<<< HEAD
-import config from "./docs/swagger-output.json";
-// import cookieParser from "cookie-parser";
-=======
 import config from './docs/swagger-output.json';
->>>>>>> 843abbe226f7fc964f6db5f65c8bdaa7bf8d75ec
 import swaggerUi from 'swagger-ui-express';
 import { errorHandler } from './middleware/error.middleware';
 import { notFound } from './middleware/notFound.middleware';
