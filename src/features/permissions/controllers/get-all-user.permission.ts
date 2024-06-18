@@ -7,7 +7,7 @@ const { SUCCESS, FAIL, ERROR } = statusCode;
 
 class GetAllPermissions {
     async get_all_permissions(req: Request, res: Response, next: NextFunction) {
-        const payload: GET_ALL_USER_DTO = req.body;
+        const payload: GET_ALL_USER_DTO = req.query as unknown as GET_ALL_USER_DTO;
         const token = req.decodedToken;
         if (payload.user_id !== token?.id) {
             const err = new globalError('Unauthorized to perform this action', 401, FAIL);
