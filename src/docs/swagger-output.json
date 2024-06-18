@@ -34,19 +34,16 @@
                             "type": "object",
                             "properties": {
                                 "name": {
-                                    "example": "John Doe"
+                                    "example": "any"
                                 },
                                 "email": {
-                                    "example": "john_doe@gmail.com"
+                                    "example": "any"
                                 },
                                 "password": {
-                                    "example": "John1234_12Gx"
+                                    "example": "any"
                                 },
                                 "nin": {
-                                    "example": 141414141
-                                },
-                                "gender": {
-                                    "example": "Male"
+                                    "example": "any"
                                 }
                             }
                         }
@@ -109,9 +106,6 @@
                                 },
                                 "email": {
                                     "example": "any"
-                                },
-                                "password": {
-                                    "example": "123456xo"
                                 },
                                 "licence": {
                                     "example": "any"
@@ -192,7 +186,7 @@
                             "type": "object",
                             "properties": {
                                 "user_id": {
-                                    "example": "1415hsvqr2"
+                                    "example": "any"
                                 }
                             }
                         }
@@ -233,7 +227,7 @@
                             "type": "object",
                             "properties": {
                                 "org_id": {
-                                    "example": "1415hsvqr2"
+                                    "example": "any"
                                 }
                             }
                         }
