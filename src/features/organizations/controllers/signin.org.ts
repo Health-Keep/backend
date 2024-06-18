@@ -9,9 +9,9 @@ const { SUCCESS, FAIL, ERROR } = statusCode;
 
 class SigninOrg {
     async login_org(req: Request, res: Response, next: NextFunction) {
-        const { email, password } = req.body;
+        const { email, password, licence } = req.body;
         try {
-            const org = await Organization.findOne({ email });
+            const org = await Organization.findOne({ email, licence });
 
             if (!org) {
                 const err = new globalError('Orginzation not found', 404, FAIL);

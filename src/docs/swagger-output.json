@@ -149,6 +149,9 @@
                                 },
                                 "password": {
                                     "example": "any"
+                                },
+                                "licence": {
+                                    "example": "any"
                                 }
                             }
                         }
