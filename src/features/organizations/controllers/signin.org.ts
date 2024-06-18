@@ -4,38 +4,37 @@ import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import { globalError } from '../../../utils/globalError';
 import { statusCode } from '../../../utils/httpStatusCode';
-const { SUCCESS, FAIL } = statusCode;
+import Organization from '../models/org-model';
+const { SUCCESS, FAIL, ERROR } = statusCode;
 
 class SigninOrg {
     async login_org(req: Request, res: Response, next: NextFunction) {
-        const { email, password, licence } = req.body;
+        const { email, password } = req.body;
         try {
-            if (!email || !password || !licence) {
-                const err = new globalError('Email, Password and Licence are required', 400, FAIL);
-                return next(err);
-            }
-            const user = await User.findOne({ email, licence });
+            const org = await Organization.findOne({ email });
 
-            if (!user) {
-                const err = new globalError('User not found', 404, FAIL);
+            if (!org) {
+                const err = new globalError('Orginzation not found', 404, FAIL);
                 return next(err);
             }
 
-            const isMatch = await bcryptjs.compare(password, user.password);
+            const isMatch = await bcryptjs.compare(password, org.password);
             if (!isMatch) {
-                const err = new globalError('Invalid Email Or Password', 400, FAIL);
+                const err = new globalError('Invalid credentials', 401, FAIL);
                 return next(err);
             }
 
-            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
+            const token = jwt.sign({ id: org._id }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
+            const orgWithoutPassword = await Organization.findOne({ email }).select('-password');
             res.json({
                 status: SUCCESS,
                 message: 'Logged in successfully',
+                data: orgWithoutPassword,
                 token
             });
         } catch (error: any) {
             res.status(500).json({
-                status: 'Error',
+                status: ERROR,
                 message: error.message
             });
         }
