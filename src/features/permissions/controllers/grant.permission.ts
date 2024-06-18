@@ -4,7 +4,6 @@ import { statusCode } from '../../../utils/httpStatusCode';
 import { REQUEST_PER_DTO } from '../interfaces/request.permission.dto';
 import { permissionExistsService } from '../services/permission-exits.service';
 import { grantPermissionService } from '../services/grant-permission.service';
-import { idMatchOrgService } from '../services/match-id-org.services';
 const { SUCCESS, FAIL, ERROR } = statusCode;
 
 class GrantPermission {

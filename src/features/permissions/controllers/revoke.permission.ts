@@ -4,7 +4,6 @@ import { statusCode } from '../../../utils/httpStatusCode';
 import { REQUEST_PER_DTO } from '../interfaces/request.permission.dto';
 import { permissionExistsService } from '../services/permission-exits.service';
 import { revokePermissionService } from '../services/revoke-permisson.service';
-import { idMatchUserService } from '../services/match-id-user.service';
 const { SUCCESS, FAIL, ERROR } = statusCode;
 
 class RevokePermission {
