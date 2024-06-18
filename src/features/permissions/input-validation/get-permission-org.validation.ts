@@ -12,7 +12,7 @@ const permissionOrgSchema = joi.object({
 
 const permissionOrgValidation = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        await permissionOrgSchema.validateAsync(req.body);
+        await permissionOrgSchema.validateAsync(req.query);
         next();
     } catch (error) {
         if (error instanceof Error) {

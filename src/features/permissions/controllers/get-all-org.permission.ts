@@ -9,7 +9,7 @@ const { SUCCESS, FAIL, ERROR } = statusCode;
 
 class GetAllOrgPermissions {
     async get_all_org_permissions(req: Request, res: Response, next: NextFunction) {
-        const payload: GET_ALL_ORG_DTO = req.body;
+        const payload: GET_ALL_ORG_DTO = req.query as unknown as GET_ALL_ORG_DTO;
         const token = req.decodedToken;
         if (payload.org_id !== token?.id) {
             const err = new globalError('Unauthorized to perform this action', 401, FAIL);
