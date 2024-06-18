@@ -110,6 +110,9 @@
                                 "email": {
                                     "example": "any"
                                 },
+                                "password": {
+                                    "example": "123456xo"
+                                },
                                 "licence": {
                                     "example": "any"
                                 }
